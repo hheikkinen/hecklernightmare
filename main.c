@@ -2,10 +2,16 @@
 #include <stdint.h>
 #include <gbdk/font.h>
 
-unsigned char splashscreen[]=
+unsigned char title[]=
 {
-  0x12,0xF,0xD,0x15,0x16,0xF,0x1C,0x0,0x0,0x0,
-  0x18,0x13,0x11,0x12,0x1E,0x17,0xB,0x1C,0xF,0x0,
+  0x12,0xF,0xD,0x15,0x16,0xF,0x1C,0x0,0x0,0x0,0x0,0x0,
+  0x18,0x13,0x11,0x12,0x1E,0x17,0xB,0x1C,0xF,0x0,0x0,0x0,
+  0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+};
+
+unsigned char press_start[]=
+{
+  0x1A, 0x1C, 0xF, 0x1D, 0x1D,0x0, 0x1D, 0x1E, 0xB, 0x1C, 0x1E,0x0,
 };
 
 unsigned char empty_bubble[]=
@@ -26,6 +32,35 @@ unsigned char test_bubble[]=
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 };
 
+unsigned char options_bubble1[]=
+{
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0x19,0x1A,0x1E,0x13,0x19,0x18,0,0xB,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0x19,0x1A,0x1E,0x13,0x19,0x18,0,0xC,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
+
+unsigned char screen_3[]=
+{
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
+
+unsigned char screen_4[]=
+{
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
 
 const uint8_t circlesprite8x8_tiles[32] = {
 	0x3c,0x3c,0x7e,0x76,
@@ -209,16 +244,24 @@ int screen = -1;
 
 int bkgRendered = 0;
 int bubbleX = 1, bubbleY = 1, bubbleW = 18, bubbleH = 5;
+int selectedResponse = 0;
 
-unsigned char empty[] =
+void set_bubble_text(unsigned char *text)
 {
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,
-};
+    set_bkg_tiles(bubbleX, bubbleY, bubbleW, bubbleH, text);
+}
 
 void clear_bubble(void)
 {
     set_bkg_tiles(bubbleX, bubbleY, bubbleW, bubbleH, empty_bubble);
+}
+
+void complete_phase(void)
+{
+    selectedResponse = 0;
+    clear_bubble();
+    screen = 0;
+    phase++;
 }
 
 void main(void)
@@ -230,15 +273,15 @@ void main(void)
     SPRITES_8x8;
     SHOW_WIN;
     
+    // fonts
     font_t min_font;
-
     font_init();
     min_font = font_load(font_min);
     font_set(min_font);
 
+    // background
     set_bkg_data(40, 59, comedian_tileset);
 
-    // Loop forever
     while(1) {
 
         joypadPrevious = joypadCurrent;
@@ -247,18 +290,19 @@ void main(void)
         switch (screen)
         {
             case -1:
-                set_win_tiles(5, 8, 10, 2, splashscreen);
+                set_win_tiles(5, 6, 12, 4, title);
                 if(joypadCurrent & J_START)
                 {
-                    set_win_tiles(5, 8, 10, 2, empty);
+                    // hide window layer, display background tiles
                     set_bkg_tiles(0, 0, 20, 18, comedian_background);
-                    bkgRendered = 1;
                     HIDE_WIN;
+
+                    // next screen
                     screen++;
                 }
                 break;
             case 0:
-                set_bkg_tiles(bubbleX, bubbleY, bubbleW, bubbleH, test_bubble);
+                set_bubble_text(test_bubble);
 
                 if(joypadCurrent & J_A)
                 {
@@ -267,30 +311,82 @@ void main(void)
                 }
                 break;
             case 1:
-                if(joypadCurrent & J_A)
-                {
-                    screen++;
-                }
-                break;
 
+                //TODO heckler shouts
+
+
+                delay(2000);
+                screen++;
+
+
+                break;
             case 2:
+                // select response
+                if(selectedResponse == 0)
+                {
+                    options_bubble1[19] = 34;
+                    options_bubble1[55] = 0;
+                }
+
+                if( selectedResponse == 1)
+                {
+                    options_bubble1[19] = 0; 
+                    options_bubble1[55] = 34; 
+                }
+
+                if(joypadCurrent & J_DOWN) 
+                {
+                    if(selectedResponse == 0) 
+                    {
+                        selectedResponse = 1;
+                    }
+                }
+
+                if(joypadCurrent & J_UP) 
+                {
+                    if(selectedResponse == 1)
+                    {
+                        selectedResponse = 0;
+                    }
+                    
+                }
+
+                set_bubble_text(options_bubble1);
+
+                if(joypadCurrent & J_A) 
+                {
+                    if(selectedResponse == 0)
+                    {
+                        clear_bubble();
+                        screen = 3;
+                    }
+
+                    if(selectedResponse == 1)
+                    {
+                        clear_bubble();
+                        screen = 4;
+                    }
+                }
 
                 break;
-
             case 3:
-                if(joypadCurrent & J_A)
-                {
-                    screen = 0;
-                    phase++;
-                }
+                set_bubble_text(screen_3);
+
+                // TODO
+                
+                delay(3000);
+                complete_phase();
+
                 break;
             
             case 4:
-                if(joypadCurrent & J_A)
-                {
-                    screen = 0;
-                    phase++;
-                }
+                set_bubble_text(screen_4);
+
+                // TODO
+
+                delay(3000);
+                complete_phase();
+     
                 break;
             
             default:
