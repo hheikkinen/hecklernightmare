@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "character8x16.h": "c",
+    "metasprites.h": "c",
+    "textboxmap.h": "c"
+  }
+}
