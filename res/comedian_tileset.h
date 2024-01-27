@@ -7,10 +7,10 @@
  Info:
   Form                 : All tiles as one unit.
   Format               : Gameboy 4 color.
-  Compression          : GB-Compress.
+  Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 0
+  Tiles                : 0 to 25
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -24,8 +24,8 @@
 
 
 /* Bank of tiles. */
-#define Comedian tilesetBank 0
+#define comedian_tilesetBank 0
 /* Start of tile array. */
-extern unsigned char Comedian tileset[];
+extern unsigned char comedian_tileset[];
 
 /* End of COMEDIAN_TILESET.H */

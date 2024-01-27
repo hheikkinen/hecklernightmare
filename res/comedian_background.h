@@ -18,10 +18,10 @@
 
 */
 
-#define Comedian backgroundWidth 20
-#define Comedian backgroundHeight 18
-#define Comedian backgroundBank 0
+#define comedian_backgroundWidth 20
+#define comedian_backgroundHeight 18
+#define comedian_backgroundBank 0
 
-extern unsigned char Comedian background[];
+extern unsigned char comedian_background[];
 
 /* End of COMEDIAN_BACKGROUND.H */
