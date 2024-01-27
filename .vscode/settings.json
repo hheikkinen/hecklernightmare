@@ -2,6 +2,9 @@
   "files.associations": {
     "character8x16.h": "c",
     "metasprites.h": "c",
-    "textboxmap.h": "c"
+    "textboxmap.h": "c",
+    "comedian_tileset.h": "c",
+    "comedian_background.h": "c",
+    "font.h": "c"
   }
 }
