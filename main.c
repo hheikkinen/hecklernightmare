@@ -625,6 +625,7 @@ void main(void)
 
         switch (screen)
         {
+            // title screen
             case -1:
                 set_win_tiles(5, 6, 12, 4, title);
                 if(joypad_current & J_START)
@@ -635,6 +636,8 @@ void main(void)
                     screen++;
                 }
                 break;
+
+            // joke screen
             case 0:
                 if(bkg_rendered == 0) 
                 {
@@ -663,6 +666,8 @@ void main(void)
                     screen++;
                 }
                 break;
+                
+            // heckler screen
             case 1:
                 set_bkg_data(40, 59, audience_tileset);
                 set_bkg_tiles(0, 0, 20, 18, audience_neutral);
@@ -682,9 +687,9 @@ void main(void)
 
                 delay(2000);
                 screen++;
-
-
                 break;
+
+            // response screen
             case 2:
                 // which is correct response
                 if(phase == 0) 
@@ -809,6 +814,8 @@ void main(void)
                 }
 
                 break;
+
+            // angry response screen
             case 3:
                 set_bkg_data(40, 59, audience_tileset);
                 set_bkg_tiles(0, 0, 20, 18, audience_angry);
@@ -818,6 +825,8 @@ void main(void)
                 complete_phase(0);
 
                 break;
+
+            // happy response screen
             case 4:
                 set_bkg_data(40, 59, audience_tileset);
                 set_bkg_tiles(0, 0, 20, 18, audience_happy);
@@ -828,6 +837,7 @@ void main(void)
      
                 break;
 
+            // score screen
             case 5:
                 clear_bubble();
                 score[19] = points + 1;
