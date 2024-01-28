@@ -2,7 +2,7 @@ Phase 1:
   Setup: Hello! Welcome to my show! It is nice to be here!
   Heckler: You stink!!!
   Options:
-    Setup: I didn't know..
+    Setup: I did not know..
     Option 1: I was performing for dogs.(L)
     Option 2: My deodorant was expired. (W)
 
