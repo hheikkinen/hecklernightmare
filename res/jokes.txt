@@ -15,9 +15,9 @@ Phase 2:
     Option 2: Umm... ... (L)
 
 Phase 3:
-  Setup: Anyway.. Do you know why eggs do not tell jokes?
-  Heckler: Because of your mom!
+  Setup: Why did the math book look sad? 
+  Heckler: Your wife!
   Options:
-    Setup: Where do you
-    Option 1: know her from?
-    Option 2:
+    Setup: You are right.
+    Option 1: She is not that good at math. (L)
+    Option 2: They both are full of problems. (W)
