@@ -4,16 +4,31 @@
 
 // TEXTS
 
+unsigned char additional_character[] =
+{
+  0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  0x00,0x00,0x30,0x30,0x30,0x30,0x00,0x00,
+  0x00,0x00,0x30,0x30,0x30,0x30,0x30,0x30,
+  0x30,0x30,0x00,0x00,0x30,0x30,0x00,0x00,
+  0x00,0x00,0x38,0x38,0x64,0x64,0x0C,0x0C,
+  0x38,0x38,0x00,0x00,0x30,0x30,0x00,0x00
+};
+
 unsigned char title[]=
 {
   0x12,0xF,0xD,0x15,0x16,0xF,0x1C,0x0,0x0,0x0,0x0,0x0,
   0x18,0x13,0x11,0x12,0x1E,0x17,0xB,0x1C,0xF,0x0,0x0,0x0,
   0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+  0x1A,0x1C,0xF,0x1D,0x1D,0x0,0x1D,0x1E,0xB,0x1C,0x1E,0x0,
 };
 
-unsigned char press_start[]=
+
+unsigned char score[]=
 {
-  0x1A, 0x1C, 0xF, 0x1D, 0x1D,0x0, 0x1D, 0x1E, 0xB, 0x1C, 0x1E,0x0,
+  0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+  0x0,29,13,25,28,15,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+  0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
+  0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,
 };
 
 unsigned char empty_bubble[]=
@@ -25,53 +40,103 @@ unsigned char empty_bubble[]=
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 };
 
-unsigned char test_bubble[]=
+unsigned char joke_1[]=
 {
-  29,11,23,26,22,15,0,30,15,34,30,0,30,25,0,0,0,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  29,26,15,15,13,18,0,12,31,12,12,22,15,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,18,15,22,22,25,38,0,33,15,22,13,25,23,15,0,30,25,
+  0,23,35,0,29,18,25,33,38,0,19,30,0,19,29,0,0,0,
+  0,24,19,13,15,0,30,25,0,12,15,0,18,15,28,15,38,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 };
 
-unsigned char options_bubble1[]=
+unsigned char joke_2[]=
 {
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0x19,0x1A,0x1E,0x13,0x19,0x18,0,0xB,0,0,0,0,0,0,0,0,
+  0,11,24,35,33,11,35,37,37,37,0,14,25,0,35,25,31,0,
+  0,21,24,25,33,0,33,18,35,0,15,17,17,29,0,14,25,0,
+  0,24,25,30,0,30,15,22,22,0,20,25,21,15,29,39,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
+
+unsigned char joke_3[]=
+{
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0x19,0x1A,0x1E,0x13,0x19,0x18,0,0xC,0,0,0,0,0,0,0,0,
+  0,33,18,35,0,14,19,14,0,30,18,15,0,23,11,30,18,0,
+  0,12,25,25,21,0,22,25,25,21,0,29,11,14,39,0,0,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 };
 
-unsigned char heckler_shout1[]=
+unsigned char heckler_1[]=
 {
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,11,11,11,0,0,0,0,0,0,0,0,
+  0,0,0,35,25,31,0,29,30,19,24,21,38,38,38,0,0,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
+
+unsigned char heckler_2[]=
+{
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,12,15,13,11,31,29,15,0,25,16,0,35,25,31,28,0,
+  0,0,23,25,23,38,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
+
+unsigned char heckler_3[]=
+{
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,35,25,31,28,0,33,19,16,15,38,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
+
+unsigned char options_1[]=
+{
+  19,0,14,19,14,0,24,25,30,0,21,24,25,33,37,37,0,0,
+  0,0,19,0,33,11,29,0,26,15,28,16,25,28,23,19,24,17,
+  0,0,0,0,16,25,28,0,14,25,17,29,37,37,0,0,0,0,
+  0,0,23,35,0,14,15,25,14,25,28,11,24,30,0,33,11,29,
+  0,0,0,0,15,34,26,19,28,15,14,0,0,0,0,0,0,0,
+};
+
+unsigned char options_2[]=
+{
+  18,25,33,0,14,19,14,0,35,25,31,0,21,24,25,33,39,0,
+  0,0,11,28,15,0,35,25,31,0,12,11,21,15,28,0,0,0,
+  0,0,0,0,22,19,21,15,0,18,15,28,39,0,0,0,0,0,
+  0,0,31,23,23,37,37,37,0,37,37,37,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+};
+
+unsigned char options_3[]=
+{
+  35,25,31,0,11,28,15,0,28,19,17,18,30,37,0,0,0,0,
+  0,0,29,18,15,0,19,29,0,24,25,30,0,30,18,11,30,0,
+  0,0,0,0,17,25,25,14,0,11,30,0,23,11,30,18,0,0,
+  0,0,30,18,15,35,0,12,25,30,18,0,11,28,15,0,0,0,
+  0,0,16,31,22,22,0,25,16,0,26,28,25,12,22,15,23,29
 };
 
 unsigned char happy_bubble[]=
 {
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,18,11,0,18,11,38,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,18,11,0,18,11,11,38,0,0,0,
+  0,0,0,18,11,18,11,38,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,18,11,0,18,11,38,0,0,0,
 };
 
 unsigned char angry_bubble[]=
 {
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,12,25,25,38,0,0,
+  0,0,12,25,25,38,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,12,25,25,25,38,0,0,0,0,0,0,0,
+  0,0,0,38,39,38,0,0,0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,0,12,25,25,38,0,0,0,
 };
 
 const uint8_t circlesprite8x8_tiles[32] = {
@@ -493,33 +558,50 @@ unsigned char audience_tileset[] =
   0x08,0xF8,0x04,0xFC,0xFC,0xFC,0xF8,0xF8
 };
 
-
-
-int joypadCurrent = 0, joypadPrevious = 0;
+int joypad_current = 0, joypad_previous = 0;
+int bubble_x = 1, bubble_y = 1, bubble_w = 18, bubble_h = 5;
+int bkg_rendered = 0;
 
 int phase = 0;
 int screen = -1;
-
-int bkgRendered = 0;
-int bubbleX = 1, bubbleY = 1, bubbleW = 18, bubbleH = 5;
-int selectedResponse = 0;
+int points = 0;
+int selected_response = 0;
+int correct_response = 0;
 
 void set_bubble_text(unsigned char *text)
 {
-    set_bkg_tiles(bubbleX, bubbleY, bubbleW, bubbleH, text);
+    set_bkg_tiles(bubble_x, bubble_y, bubble_w, bubble_h, text);
 }
 
 void clear_bubble(void)
 {
-    set_bkg_tiles(bubbleX, bubbleY, bubbleW, bubbleH, empty_bubble);
+    set_bkg_tiles(bubble_x, bubble_y, bubble_w, bubble_h, empty_bubble);
 }
 
-void complete_phase(void)
+void complete_phase(int addPoint)
 {
-    selectedResponse = 0;
     clear_bubble();
+    selected_response = 0;
+    points += addPoint;
+
+    if(phase == 2) 
+    {
+      // end game
+      screen = 5;
+    } else 
+    {
+      phase++;
+      screen = 0;
+    }
+}
+
+void init(void)
+{
+    clear_bubble();
+    phase = 0;
     screen = 0;
-    phase++;
+    selected_response = 0;
+    points = 0;
 }
 
 void main(void)
@@ -527,8 +609,6 @@ void main(void)
     DISPLAY_ON;
 
     SHOW_BKG;
-    SHOW_SPRITES;
-    SPRITES_8x8;
     SHOW_WIN;
     
     // fonts
@@ -536,17 +616,17 @@ void main(void)
     font_init();
     min_font = font_load(font_min);
     font_set(min_font);
+    set_bkg_data(37, 4, additional_character);
 
     while(1) {
-
-        joypadPrevious = joypadCurrent;
-        joypadCurrent = joypad();
+        joypad_previous = joypad_current;
+        joypad_current = joypad();
 
         switch (screen)
         {
             case -1:
                 set_win_tiles(5, 6, 12, 4, title);
-                if(joypadCurrent & J_START)
+                if(joypad_current & J_START)
                 {
                     HIDE_WIN;
 
@@ -555,29 +635,49 @@ void main(void)
                 }
                 break;
             case 0:
-
-                if(bkgRendered == 0) 
+                if(bkg_rendered == 0) 
                 {
                     set_bkg_data(40, 59, comedian_tileset);
                     set_bkg_tiles(0, 0, 20, 18, comedian_background);
-                    bkgRendered = 1;
+                    bkg_rendered = 1;
                 }
 
-                set_bubble_text(test_bubble);
+                if(phase == 0) 
+                {
+                  set_bubble_text(joke_1);
+                } 
+                else if(phase == 1)
+                {
+                  set_bubble_text(joke_2);
+                } 
+                else if(phase == 2)
+                {
+                  set_bubble_text(joke_3);
+                }
 
-                if(joypadCurrent & J_A)
+                if(joypad_current & J_A)
                 {
                     clear_bubble();
-                    bkgRendered = 0;
+                    bkg_rendered = 0;
                     screen++;
                 }
                 break;
             case 1:
-
-                //TODO heckler shouts
                 set_bkg_data(40, 59, audience_tileset);
                 set_bkg_tiles(0, 0, 20, 18, audience_neutral);
-                set_bubble_text(heckler_shout1);
+
+                if(phase == 0) 
+                {
+                  set_bubble_text(heckler_1);
+                } 
+                else if(phase == 1)
+                {
+                  set_bubble_text(heckler_2);
+                } 
+                else if(phase == 2)
+                {
+                  set_bubble_text(heckler_3);
+                }
 
                 delay(2000);
                 screen++;
@@ -585,86 +685,159 @@ void main(void)
 
                 break;
             case 2:
-                //TODO heckler shouts
+                // which is correct response
+                if(phase == 0) 
+                {
+                  correct_response = 1;
+                } 
+                else if(phase == 1)
+                {
+                  correct_response = 0;
+                } 
+                else if(phase == 2)
+                {
+                  correct_response = 1;
+                }
 
-                if(bkgRendered == 0) 
+                if(bkg_rendered == 0) 
                 {
                     set_bkg_data(40, 59, comedian_tileset);
                     set_bkg_tiles(0, 0, 20, 18, comedian_background);
-                    bkgRendered = 1;
+                    bkg_rendered = 1;
                 }
 
                 // select response
-                if(selectedResponse == 0)
+                if(selected_response == 0)
                 {
-                    options_bubble1[19] = 34;
-                    options_bubble1[55] = 0;
+                  if(phase == 0) 
+                  {
+                    options_1[19] = 34;
+                    options_1[55] = 0;
+                  } 
+                  else if(phase == 1)
+                  {
+                    options_2[19] = 34;
+                    options_2[55] = 0;
+                  } 
+                  else if(phase == 2)
+                  {
+                    options_3[19] = 34;
+                    options_3[55] = 0;
+                  }
+                } 
+                else
+                {
+                  if(phase == 0) 
+                  {
+                    options_1[19] = 0;
+                    options_1[55] = 34;
+                  } 
+                  else if(phase == 1)
+                  {
+                    options_2[19] = 0;
+                    options_2[55] = 34;
+                  } 
+                  else if(phase == 2)
+                  {
+                    options_3[19] = 0;
+                    options_3[55] = 34;
+                  }
                 }
 
-                if( selectedResponse == 1)
+                if(joypad_current & J_DOWN) 
                 {
-                    options_bubble1[19] = 0; 
-                    options_bubble1[55] = 34; 
-                }
-
-                if(joypadCurrent & J_DOWN) 
-                {
-                    if(selectedResponse == 0) 
+                    if(selected_response == 0) 
                     {
-                        selectedResponse = 1;
+                        selected_response = 1;
                     }
                 }
 
-                if(joypadCurrent & J_UP) 
+                if(joypad_current & J_UP) 
                 {
-                    if(selectedResponse == 1)
+                    if(selected_response == 1)
                     {
-                        selectedResponse = 0;
+                        selected_response = 0;
                     }
-                    
                 }
 
-                set_bubble_text(options_bubble1);
-
-                if(joypadCurrent & J_A) 
+                if(phase == 0) 
                 {
-                    if(selectedResponse == 0)
+                    set_bubble_text(options_1);
+                } 
+                else if(phase == 1)
+                {
+                    set_bubble_text(options_2);
+                } 
+                else if(phase == 2)
+                {
+                    set_bubble_text(options_3);
+                }
+
+                if(joypad_current & J_A) 
+                {
+                    if(selected_response == 0)
                     {
                         clear_bubble();
-                        bkgRendered = 0;
-                        screen = 3;
+                        bkg_rendered = 0;
+
+                        if(correct_response == 0) 
+                        {
+                          screen = 4;
+                        }
+                        else
+                        {
+                          screen = 3;
+                        }
+
                     }
 
-                    if(selectedResponse == 1)
+                    if(selected_response == 1)
                     {
                         clear_bubble();
-                        bkgRendered = 0;
-                        screen = 4;
+                        bkg_rendered = 0;
+
+                        if(correct_response == 1) 
+                        {
+                          screen = 4;
+                        }
+                        else
+                        {
+                          screen = 3;
+                        }
                     }
                 }
 
                 break;
             case 3:
-                set_bubble_text(angry_bubble);
-
                 set_bkg_data(40, 59, audience_tileset);
                 set_bkg_tiles(0, 0, 20, 18, audience_angry);
+                set_bubble_text(angry_bubble);
                 
                 delay(3000);
-                complete_phase();
+                complete_phase(0);
 
                 break;
-            
             case 4:
                 set_bkg_data(40, 59, audience_tileset);
                 set_bkg_tiles(0, 0, 20, 18, audience_happy);
-
                 set_bubble_text(happy_bubble);
 
-
                 delay(3000);
-                complete_phase();
+                complete_phase(1);
      
+                break;
+
+            case 5:
+                clear_bubble();
+                score[20] = points + 1;
+                set_win_tiles(5, 6, 12, 4, score);
+
+                SHOW_WIN;
+                if(joypad_current & J_START)
+                {
+                    HIDE_WIN;
+                    init();
+                }
                 break;
             
             default:
