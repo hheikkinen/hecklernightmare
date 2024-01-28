@@ -7,9 +7,17 @@ Phase 1:
     Option 2: My deodorant was expired. (W)
 
 Phase 2:
-  Setup:
-  Heckler:
+  Setup: Anyway.. Do you know why eggs do not tell jokes?
+  Heckler: Because of your mom!
   Options:
-    Setup:
-    Option 1:
+    Setup: How did you know?
+    Option 1: Are you baker like her? (W)
+    Option 2: Umm... ... (L)
+
+Phase 3:
+  Setup: Anyway.. Do you know why eggs do not tell jokes?
+  Heckler: Because of your mom!
+  Options:
+    Setup: Where do you
+    Option 1: know her from?
     Option 2:
